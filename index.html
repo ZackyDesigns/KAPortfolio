@@ -10,38 +10,6 @@
   html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   body { background: #111; color: #fff; overflow-x: hidden; position: relative; }
 
-/* Under Construction Bar */
-.construction-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 42px;
-  z-index: 3000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #000;
-  text-transform: uppercase;
-  background: repeating-linear-gradient(
-    45deg,
-    #f5c400 0px,
-    #f5c400 20px,
-    #000 20px,
-    #000 40px
-  );
-  animation: moveStripes 1.2s linear infinite;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-}
-
-.construction-bar span {
-  background: rgba(245,196,0,0.9);
-  padding: 4px 12px;
-  border-radius: 4px;
-}
-
 /* Push content down so it doesn't hide under bar */
 body {
   padding-top: 42px;
@@ -120,11 +88,6 @@ body {
 </style>
 </head>
 <body>
-
-<!-- Under Construction Bar -->
-<div class="construction-bar">
-  <span> UNDER CONSTRUCTION — THINGS MAY BREAK </span>
-</div>
 
 
 <!-- Gradient sidebars -->
