@@ -10,12 +10,10 @@
   html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   body { background: #111; color: #fff; overflow-x: hidden; position: relative; }
 
-
-@keyframes moveStripes {
-  from { background-position: 0 0; }
-  to { background-position: 60px 0; }
-}
-
+  @keyframes moveStripes {
+    from { background-position: 0 0; }
+    to { background-position: 60px 0; }
+  }
 
   /* Gradient Sidebars */
   .gradient-side {
@@ -44,6 +42,20 @@
   .asset { width: 100%; max-width: 900px; margin: 20px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.4); transition: transform 0.3s ease, box-shadow 0.3s ease; }
   .asset img { width: 100%; height: auto; display: block; transition: transform 0.3s ease; }
   .asset:hover { transform: scale(1.03); box-shadow: 0 10px 30px rgba(255,255,255,0.2); cursor: pointer; }
+
+  /* Gift Vouchers Side-by-Side Row Layout */
+  .vouchers-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px 0;
+  }
+  .vouchers-row .asset {
+    flex: 1;
+    margin: 0; /* Clear default vertical margins inside the row */
+  }
 
   /* Pamphlet 2-page container */
   .pamphlet-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; width: 100%; max-width: 1000px; margin: 0 auto 40px; perspective: 1500px; position: relative; }
@@ -75,6 +87,7 @@
     .container { padding: 30px 20px; }
     h1.asset-title { font-size: 2em; }
     .carousel-grid .grid-container { grid-template-columns: repeat(2, 1fr); }
+    .vouchers-row { flex-direction: column; gap: 15px; }
     .pamphlet-container { flex-direction: column; gap: 15px; perspective: none; }
     .left-page, .right-page { transform: rotateY(0deg); }
     .pamphlet-page:hover { transform: scale(1.03); }
@@ -84,7 +97,6 @@
 </style>
 </head>
 <body>
-
 
 <!-- Gradient sidebars -->
 <div class="gradient-side left-gradient"></div>
@@ -100,6 +112,19 @@
   <section>
     <h1 class="asset-title">Posters</h1>
     <div class="asset"><img src="images/KA - Black Friday Updated size.png" alt="Poster Design"></div>
+  </section>
+
+  <section>
+    <h1 class="asset-title">Instagram Feed</h1>
+    <div class="asset">
+      <img src="images/KA - Instagram Weskus Mall color(1).png" alt="Instagram Feed Design">
+    </div>
+    <div class="asset">
+      <img src="images/KA - Polygons.png" alt="Instagram Feed Design 2">
+    </div>
+    <div class="asset">
+      <img src="images/KA - Family Day.png" alt="Instagram Feed">
+    </div>
   </section>
 
   <section>
@@ -123,6 +148,21 @@
   </section>
 
   <section>
+    <h1 class="asset-title">Gift Vouchers</h1>
+    <div class="vouchers-row">
+      <div class="asset">
+        <img src="images/KA - Gift Vouchers-01.png" alt="Gift Voucher Design 1">
+      </div>
+      <div class="asset">
+        <img src="images/KA - Gift Vouchers-02.png" alt="Gift Voucher Design 2">
+      </div>
+      <div class="asset">
+        <img src="images/KA - Gift Vouchers-03.png" alt="Gift Voucher Design 3">
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h1 class="asset-title">Banners</h1>
     <div class="asset"><img src="images/KA Banner 8.jpg" alt="Banner Design"></div>
   </section>
@@ -132,15 +172,15 @@
     <div class="asset"><img src="images/KA - Roller Banner.jpg" alt="Roller Banner Design"></div>
   </section>
 
-<section>
-  <h1 class="asset-title">Video Showcase</h1>
-  <div class="asset">
-    <video controls poster="images/KA_Thumbnail.png" style="width:100%; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.4);">
-      <source src="videos/KA_Video_compressed.mp4"" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</section>
+  <section>
+    <h1 class="asset-title">Video Showcase</h1>
+    <div class="asset">
+      <video controls poster="images/KA_Thumbnail.png" style="width:100%; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.4);">
+        <source src="videos/KA_Video_compressed.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
 
   <section>
     <h1 class="asset-title">Billboards</h1>
@@ -204,7 +244,9 @@ const clickableImages = document.querySelectorAll(
   '.asset img[alt*="Poster"], ' +
   '.asset img[alt*="Vending Wrap"], ' +
   '.asset img[alt*="Banner"], ' +
-  '.asset img[alt*="Roller Banner"]'
+  '.asset img[alt*="Roller Banner"], ' +
+  '.asset img[alt*="Instagram Feed"], ' +
+  '.asset img[alt*="Gift Voucher"]'
 );
 
 clickableImages.forEach(img => {
